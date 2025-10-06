@@ -131,4 +131,36 @@
         </div>
     </div>
 
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    
+    <script>
+        function getWeather(kota) {
+            $("#info-cuaca span").text("..."); 
+            const apiKey = "1b20c989c0374e26a6b40426250610";
+            const urlapi = `https://api.weatherapi.com/v1/current.json?key=${apiKey}&q=${kota}&aqi=no`;
+            $.ajax({
+                url: urlapi,
+                type: 'GET',
+                dataType: 'json',
+                success: function(data) {
+          
+                    $("#suhu").html(`${data.current.temp_c}<sup>°C</sup>`);
+                    $("#lokasi").text(data.location.name);
+                    $("#negara").text(data.location.country);
+                    $("#provinsi").text(data.location.region);
+                    $("#latitude").text(data.location.lat);
+                    $("#longitude").text(data.location.lon);
+                },
+                error: function() {
+                    $("#info-cuaca").html(`<p class="error">Lokasi tidak ditemukan. Mohon periksa kembali nama kota.</p>`);
+                }
+            });
+        }
+
+        $("#tombol-cari").on("click", function() { let kotaInput = $("#input-lokasi").val(); if (kotaInput.trim() !== "") { getWeather(kotaInput); } else { alert("Silakan masukkan nama lokasi terlebih dahulu."); } });
+        $("#input-lokasi").on("keypress", function(e) { if (e.which === 13) { $("#tombol-cari").click(); } });
+        $(document).ready(function() { getWeather("Yogyakarta"); });
+    </script> 
+
+</body>
+</html>
