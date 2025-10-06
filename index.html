@@ -48,4 +48,87 @@
 
 
 
+        #info-cuaca {
+            text-align: center; 
+        }
+        
+     
+        #tampilan-utama {
+            margin-bottom: 25px;
+        }
+
+        #p-suhu {
+            font-size: 6rem; 
+            font-weight: 200; 
+            margin: 10px 0;
+            line-height: 1;
+        }
+        
+        #p-suhu sup {
+            font-size: 2rem; 
+            font-weight: 300;
+        }
+
+        #p-lokasi {
+            font-size: 2.2rem; 
+            font-weight: 500;
+            margin: 0;
+            margin-bottom: 25px;
+        }
+
+        hr {
+            border: none;
+            border-top: 1px solid #444;
+        }
+        
        
+        #detail-info {
+            display: grid; 
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            text-align: left; 
+            margin-top: 25px;
+        }
+
+        #detail-info p {
+            margin: 0;
+        }
+
+        #detail-info strong {
+            display: block;
+            color: #9e9e9e;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .error { color: #ef5350; font-weight: bold; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Info Cuaca</h1>
+        
+        <div id="search-box">
+            <input type="text" id="input-lokasi" placeholder="Contoh: Jakarta, London...">
+            <button id="tombol-cari">Cari</button>
+        </div>
+
+        <div id="info-cuaca">
+            <div id="tampilan-utama">
+                <p id="p-suhu"><span id="suhu">...</span></p>
+                <p id="p-lokasi"><span id="lokasi">Memuat...</span></p>
+            </div>
+            
+            <hr>
+
+            <div id="detail-info">
+                <p><strong>Negara:</strong> <span id="negara">...</span></p>
+                <p><strong>Provinsi:</strong> <span id="provinsi">...</span></p>
+                <p><strong>Latitude:</strong> <span id="latitude">...</span></p>
+                <p><strong>Longitude:</strong> <span id="longitude">...</span></p>
+            </div>
+        </div>
+    </div>
+
+   
